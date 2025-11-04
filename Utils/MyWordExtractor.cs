@@ -85,7 +85,9 @@ public class MyWordExtractor
         //последний элемент
         if (currentContent.Length > 0)
         {
-            var lastpage = result.Max(x => x.Page) + 1;
+            var lastpage = 1;
+            if (result.Count > 0)
+                lastpage = result.Max(x => x.Page) + 1;
             result.Add(new Section() { Title = currentHeading, Content = currentContent.ToString(), Page = lastpage });
         }
 
